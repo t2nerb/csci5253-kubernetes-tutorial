@@ -2,8 +2,7 @@ FROM golang:alpine as build
 WORKDIR /go/src/app
 
 COPY . /go/src
-RUN go get
-RUN go build
+RUN go get && go build
 
 FROM alpine:latest
 WORKDIR /app

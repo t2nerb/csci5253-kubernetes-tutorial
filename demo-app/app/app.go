@@ -3,11 +3,17 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 )
 
 func indexHandler(w http.ResponseWriter, req *http.Request) {
+	terminate := req.URL.Query().Get("q")
+	if terminate != "" {
+		fmt.Println("TERMINATING 'ACCIDENTALLY'")
+		os.Exit(1)
+	}
 	fmt.Println(req)
-	fmt.Fprintf(w, "Hello, World once again :)")
+	fmt.Fprintf(w, "<h1>Hello, World :)</h1>")
 }
 
 func main() {

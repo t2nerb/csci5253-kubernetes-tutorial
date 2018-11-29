@@ -6,11 +6,11 @@ spec:
   selector:
     matchLabels:
       app: demo-app
-  replicas: 2
+  replicas: 5
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 1
+      maxSurge: 5
       maxUnavailable: 1
   minReadySeconds: 5
   template:
